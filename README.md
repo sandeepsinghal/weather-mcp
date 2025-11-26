@@ -11,5 +11,27 @@ source .venv/bin/activate
 # Install dependencies
 uv add "mcp[cli]" httpx
 
-# Create our server file
+# Create and run our server file
 touch weather.py
+enter code 
+uv run weather.py 
+
+# Modify claude config 
+vi ~/Library/Application\ Support/Claude/claude_desktop_config.json
+
+# Add MCP server config 
+
+{
+  "mcpServers": {
+    "weather": {
+      "command": "/Users/ssinghal/.local/bin/uv",
+      "args": [
+        "--directory",
+        "/Users/Shared/u001/src/github/ai-learn/weather-mcp",
+        "run",
+        "weather.py"
+      ]
+    }
+  }
+}
+
